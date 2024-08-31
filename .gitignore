@@ -1,0 +1,11 @@
+*.gdb_history
+*core*
+.vscode/
+.idea/
+*.swp
+.env
+/build/dist/target/
+*.log
+venv/
+.venv/
+__pycache__/
