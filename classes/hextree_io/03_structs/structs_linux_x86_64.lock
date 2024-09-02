@@ -1,0 +1,9 @@
+#Ghidra Lock File
+#Mon Sep 02 10:20:06 CEST 2024
+<META>\ Supports\ File\ Channel\ Locking=Channel Lock
+Hostname=tuxedo-os
+OS\ Architecture=amd64
+OS\ Name=Linux
+OS\ Version=6.8.0-101041-tuxedo
+Timestamp=9/2/24, 10\:20 AM
+Username=lastikot
