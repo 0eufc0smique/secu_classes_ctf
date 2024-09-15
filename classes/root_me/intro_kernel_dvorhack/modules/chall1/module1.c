@@ -14,16 +14,21 @@ MODULE_DESCRIPTION("Challenge 1");
 MODULE_LICENSE("GPL");
 
 int major;
+// pointers for struct class and device used in the device registration:
 static struct class*  my_class  = NULL;
 static struct device* my_device = NULL;
 
+// random quotes picked when interactig
 char* quotes[] = { "You got it !", "Almost there", "Try one more ?" };
 
 static ssize_t chall_1_read(struct file *filp, char __user *buffer, size_t len, loff_t *off) {
+    // printk() messages are printed to the kernel log buffer, which is a ring buffer exported to userspace through /dev/kmsg. The usual way to read it is using dmesg
+    // KERN_INFO specify the log level of the message
     printk(KERN_INFO "[chall_1] in chall_1_read");
 
     unsigned int rand_nb;
     get_random_bytes(&rand_nb, sizeof rand_nb); 
+    // limit the random number to 3, and pick a quote using it
     char *quote = quotes[rand_nb % 3];
 
     int ret = copy_to_user(buffer, quote, strlen(quote));
@@ -41,7 +46,9 @@ static ssize_t chall_1_write(struct file *filp, const char __user *buffer, size_
 }
 
 static struct file_operations fops = {
+    // si on fait un syscall read
     .read = chall_1_read,
+    // si on fait un syscall write
     .write = chall_1_write,
 };
 
