@@ -36,11 +36,12 @@ static ssize_t chall_1_read(struct file *filp, char __user *buffer, size_t len, 
     return ret;
 }
 
+// vuln func
 static ssize_t chall_1_write(struct file *filp, const char __user *buffer, size_t len, loff_t *off) {
     printk(KERN_INFO "[chall_1] in chall_1_write");
     int ret = 0;
     char secure_buffer[0x100];
-
+    // allows us to overflow the buffer (the user specify the len)
     ret = copy_from_user(secure_buffer, buffer, len);
     return ret;
 }
