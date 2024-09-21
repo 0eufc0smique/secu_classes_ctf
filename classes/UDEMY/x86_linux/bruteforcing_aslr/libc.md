@@ -40,11 +40,12 @@ Symbol: exit
 ### Notes
 * Only one octet changes each time the program runs with the ASLR activated
 * We wanna target the system and exit functions
-* Need to take into account that the offset is ALWAYS the same
+* Under ASLR, for a given library, the offsets don't change, only the base addresses do
 * We can either add addresses manually or use pwntools to do it.
 
 ### PLAN
-* Bruteforcing the libc base address by setting up a base address for it that we collected at one point, run an infinite loop on it until it matches the actual libc address used by the vulnerable program
+1. Setting up one of the collected libc address in our payload.
+2. run the vulnerable program in an infinite loop on until the libc address we set up in the payload matches the libc address used by the vulnerable program.
 
 
 ```bash
