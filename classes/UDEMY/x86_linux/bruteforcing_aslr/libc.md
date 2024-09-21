@@ -1,10 +1,13 @@
+### Bruteforcing ASLR
+
+* Running `vmmap` inside Gef in two different runs gives two different libc base addresses
 ```bash
 0xf7d|75|000 0xf7d|98|000 0x00000000 r-- /usr/lib32/libc.so.6
 0xf7c|f6|000 0xf7d|19|000 0x00000000 r-- /usr/lib32/libc.so.6
 ```
-*Only one octet changes each time the program runs with ASLR activated
+* We see that only one octet changes each time the program runs with the ASLR activated
 
-
+* We can collect the system() and exit() addresses inside Gef too
 ```bash
 gef➤  p system
 $3 = {<text variable, no debug info>} 0xf7d45560 <system>
@@ -34,13 +37,14 @@ Offset (from segment): 0x1b0e0
 Symbol: exit
 ```
 
-### Bruteforcing ASLR
-
-* Only one octet changes each time the ASLR is activated
+### Notes
+* Only one octet changes each time the program runs with the ASLR activated
 * We wanna target the system and exit functions
 * Need to take into account that the offset is ALWAYS the same
+* We can either add addresses manually or use pwntools to do it.
 
-=> we just need to bruteforce the libc base address by setting up a base address for it that we collected at one point, run an infinite loop on it until it matches the actual libc address used by the vulnerable program
+### PLAN
+* Bruteforcing the libc base address by setting up a base address for it that we collected at one point, run an infinite loop on it until it matches the actual libc address used by the vulnerable program
 
 
 ```bash
