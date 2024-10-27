@@ -4,8 +4,8 @@
 #include <time.h>
 
 typedef struct Music {
+    // we'll use this element of the struct to point to the win() function:
     void (*play)(struct Music*);
-
     char title[32];
     char artist[32];
     char description[128];
@@ -87,6 +87,9 @@ void add_music() {
     scanf("%31s", music->title);
     printf("Enter music artist: ");
     scanf("%31s", music->artist);
+
+    // no size control here, should have used scanf("%127s", music->description); 
+    // we'll overwritte the whole struct to get to the "play" pointer of the next Music struct
     printf("Enter music description: ");
     scanf("%s", music->description);
 

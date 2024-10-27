@@ -1,3 +1,0 @@
-Heappie is a simple application that allows you to save and play your favorite songs. Find a way to exploit it and read the flag.
-nc pwn.heroctf.fr 6000 Format : Hero{flag}
-Author : xanhacks
