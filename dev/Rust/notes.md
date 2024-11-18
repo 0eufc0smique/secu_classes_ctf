@@ -17,7 +17,7 @@
     const NUMBER: i32 = 18;
     
     fn main() {
-    	let mut hello: &str = "hello world!";
+        let mut hello: &str = "hello world!";
         println!("{}", hello);
     
         hello = "hello again";
