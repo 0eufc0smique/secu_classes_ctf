@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# ghidra binary name hasnt been changed: ghidraRun
 import os
 import sys
 import click
@@ -10,7 +10,7 @@ import select
 from time import sleep
 
 PROJECT_DIRECTORY = '/tmp'
-GHIDRA_PATH = '/opt/ghidra/'
+GHIDRA_PATH = '/home/$USER/Apps/ghidra/'
 
 def uniquify(path, sep = ''):
     def name_sequence():
@@ -45,7 +45,7 @@ def main(filename, temp):
     if os.path.isdir(filename):
         return os.system(f'{GHIDRA_PATH}ghidra')
     if '.gpr' in filename:
-        os.system(f'{GHIDRA_PATH}ghidra"{os.path.abspath(filename)}"')
+        os.system(f'{GHIDRA_PATH}ghidraRun "{os.path.abspath(filename)}"')
         return
     if temp:
         proj_file = uniquify(os.path.join(PROJECT_DIRECTORY, os.path.basename(filename) + '.gpr'))
@@ -60,7 +60,7 @@ def main(filename, temp):
     r = shouldRun()
     if r:
         os.system(f'{GHIDRA_PATH}support/analyzeHeadless {out_dir} "{proj_name}" -import "{filename}"')
-        os.system(f'{GHIDRA_PATH}ghidra"{proj_file}"')
+        os.system(f'{GHIDRA_PATH}ghidraRun "{proj_file}"')
 
 
 if __name__ == '__main__':
