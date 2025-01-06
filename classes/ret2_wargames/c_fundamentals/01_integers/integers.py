@@ -1,7 +1,6 @@
 import interact
 import re
 
-p = interact.Process()
 
 values = {
         'int8_t': (-128, 127),
@@ -16,7 +15,7 @@ values = {
         'unsigned int':(0, 4294967295)
 }
 
-def str_to_hex(string):
+""" def str_to_hex(string):
     bytes_data = bytes(string, "utf-8")
     hex_part = ' '.join(f'{byte:02X}' for byte in bytes_data)
     print(f'string: {string}\nhex: {hex_part.ljust(47)}')
@@ -33,7 +32,9 @@ def left_ansi_escape_stuff(data):
     ansi_escape_start = re.search('^\x1b[@-_][0-?]*[ -/]*[@-~]', data)
     print(f"ansi_escape_start value: {ansi_escape_start}")
     ansi_escape_end = re.search(r'\x1b[@-_][0-?]*[ -/]*[@-~]$', data)
-    print(f"ansi_escape_end value: {ansi_escape_end}")
+    print(f"ansi_escape_end value: {ansi_escape_end}") """
+
+p = interact.Process()
     
 def clean_data(data):
     data_decoded = data.decode('utf-8')                         # create a raw string to parse
