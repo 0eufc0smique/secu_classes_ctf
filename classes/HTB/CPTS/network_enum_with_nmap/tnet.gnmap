@@ -1,0 +1,8 @@
+# Nmap 7.95 scan initiated Sat Mar  1 10:26:17 2025 as: /usr/lib/nmap/nmap -sN -oA tnet 192.168.57.2-254
+Host: 192.168.57.2 ()	Status: Up
+Host: 192.168.57.2 ()	Ports: 	Ignored State: closed (1000)
+Host: 192.168.57.254 ()	Status: Up
+Host: 192.168.57.254 ()	Ports: 	Ignored State: open|filtered (1000)
+Host: 192.168.57.131 ()	Status: Up
+Host: 192.168.57.131 ()	Ports: 	Ignored State: closed (1000)
+# Nmap done at Sat Mar  1 10:26:29 2025 -- 253 IP addresses (3 hosts up) scanned in 12.49 seconds
