@@ -1,4 +1,4 @@
-#!/home/kali/.venv/bin/python3
+#!/home/lastikot/.venv/bin/python3
 # ghidra binary name hasnt been changed: ghidraRun
 import os
 import sys
