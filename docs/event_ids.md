@@ -145,6 +145,11 @@ This document provides a comprehensive reference for Windows Event IDs commonly 
 - **5124**: Update to security setting on OCSP Responder Service
 
 ### File System
+- **4**: NTFS volume mounted
+- **9**: NTFS volume dismounted
+- **10**: NTFS volume handle closed (mount handle released)
+- **300**: NTFS volume attached/recognized
+- **303**: NTFS volume removed/detached
 - **5051**: File was virtualized
 - **4985**: Transaction state change
 
@@ -159,7 +164,6 @@ This document provides a comprehensive reference for Windows Event IDs commonly 
 - **5000-5999**: File system and application events
 - **1100-1199**: System audit events
 - **5800-5999**: WMI events
-
 ---
 
 *This reference consolidates duplicate Event IDs and provides consistent descriptions for security monitoring purposes.*
