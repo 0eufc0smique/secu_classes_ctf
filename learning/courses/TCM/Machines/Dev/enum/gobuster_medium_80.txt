@@ -1,0 +1,13 @@
+http://192.168.1.12:80/.htaccess.html      [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/.htaccess.php       [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/.htaccess           [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/.htpasswd.html      [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/.htpasswd           [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/.htpasswd.php       [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/app                 [36m (Status: 301)[0m [Size: 310][34m [--> http://192.168.1.12/app/][0m
+http://192.168.1.12:80/extensions          [36m (Status: 301)[0m [Size: 317][34m [--> http://192.168.1.12/extensions/][0m
+http://192.168.1.12:80/index.php           [32m (Status: 200)[0m [Size: 3833]
+http://192.168.1.12:80/public              [36m (Status: 301)[0m [Size: 313][34m [--> http://192.168.1.12/public/][0m
+http://192.168.1.12:80/server-status       [33m (Status: 403)[0m [Size: 277]
+http://192.168.1.12:80/src                 [36m (Status: 301)[0m [Size: 310][34m [--> http://192.168.1.12/src/][0m
+http://192.168.1.12:80/vendor              [36m (Status: 301)[0m [Size: 313][34m [--> http://192.168.1.12/vendor/][0m

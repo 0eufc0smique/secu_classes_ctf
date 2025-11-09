@@ -1,5 +1,0 @@
-# Nmap 7.95 scan initiated Sat Mar  1 12:12:03 2025 as: /usr/lib/nmap/nmap -sn -oA host -PE --reason --disable-arp-ping 192.168.57.2
-Nmap scan report for 192.168.57.2
-Host is up, received echo-reply ttl 128 (0.00098s latency).
-MAC Address: 00:50:56:F2:06:66 (VMware)
-# Nmap done at Sat Mar  1 12:12:03 2025 -- 1 IP address (1 host up) scanned in 0.10 seconds

@@ -1,0 +1,45 @@
+# Nmap 7.93 scan initiated Thu Jan 26 17:56:14 2023 as: nmap -T4 -p- -A -oA butler_nmap.txt 172.16.135.130
+Nmap scan report for 172.16.135.130
+Host is up (0.00046s latency).
+Not shown: 65523 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+5040/tcp  open  unknown
+7680/tcp  open  pando-pub?
+8080/tcp  open  http          Jetty 9.4.41.v20210516
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Jetty(9.4.41.v20210516)
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+MAC Address: 00:0C:29:54:D3:79 (VMware)
+Device type: general purpose
+Running: Microsoft Windows 10
+OS CPE: cpe:/o:microsoft:windows_10
+OS details: Microsoft Windows 10 1709 - 1909
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2023-01-27T00:59:23
+|_  start_date: N/A
+|_clock-skew: 7h59m59s
+| smb2-security-mode: 
+|   311: 
+|_    Message signing enabled but not required
+|_nbstat: NetBIOS name: BUTLER, NetBIOS user: <unknown>, NetBIOS MAC: 000c2954d379 (VMware)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.46 ms 172.16.135.130
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Jan 26 17:59:38 2023 -- 1 IP address (1 host up) scanned in 204.13 seconds
