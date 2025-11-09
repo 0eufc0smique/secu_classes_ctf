@@ -1,11 +1,80 @@
-*.gdb_history
-*core*
+# Editor and IDE
 .vscode/
 .idea/
 *.swp
-.env
-/build/dist/target/
-*.log
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 venv/
 .venv/
-__pycache__/
+.Python
+
+# Environment
+.env
+.env.local
+
+# Binaries and executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+*.a
+*.lib
+*.dylib
+
+# Compiled dynamic libraries
+*.dll
+
+# Archives (be selective - some might be intentional challenge files)
+# Uncomment if you want to exclude these:
+# *.zip
+# *.tar.gz
+# *.rar
+# *.7z
+
+# Core dumps and debug files
+core
+core.*
+*.dSYM/
+*.su
+vgcore.*
+
+# GDB
+*.gdb_history
+.gdb_history
+peda-session-*.txt
+
+# Build directories
+build/
+dist/
+target/
+*.egg-info/
+*.egg
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+*.cache
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.lnk
